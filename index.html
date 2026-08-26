@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felipe Carneiro — International Correspondent</title>
+<style>
+  :root {
+    --ink: #111111;
+    --muted: #6b6b6b;
+    --rule: #e4e4e4;
+    --bg: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    text-decoration-color: var(--ink);
+  }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header.site {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  header.site .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  nav.site-nav a {
+    margin-left: 28px;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  nav.site-nav a:first-child { margin-left: 0; }
+
+  nav.site-nav a:hover { text-decoration: underline; }
+
+  section.hero {
+    padding: 72px 0 64px;
+  }
+
+  section.hero .wrap {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .hero-text { flex: 1.3; min-width: 280px; }
+  .hero-photo { flex: 1; min-width: 220px; max-width: 320px; }
+
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    filter: grayscale(15%);
+  }
+
+  h1.headline {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 1.18;
+    margin: 0 0 24px;
+    letter-spacing: -0.01em;
+  }
+
+  h1.headline em {
+    font-style: italic;
+  }
+
+  .role {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  .bio {
+    font-size: 17px;
+    color: #333333;
+    max-width: 46ch;
+  }
+
+  section {
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  h2.section-title {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 28px;
+    margin: 0 0 36px;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 36px 24px;
+  }
+
+  .work-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .work-cover {
+    display: block;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #f2f2f2;
+    border: 1px solid var(--rule);
+    margin-bottom: 14px;
+  }
+
+  .work-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .work-cover:hover img {
+    transform: scale(1.04);
+  }
+
+  .work-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 4px;
+  }
+
+  .work-title:hover { text-decoration: underline; }
+
+  .work-meta {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .work-status {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  a.work-status:hover {
+    text-decoration: underline;
+  }
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 18px;
+  }
+
+  .contact-list a { text-decoration: none; }
+  .contact-list a:hover { text-decoration: underline; }
+
+  .contact-label {
+    display: inline-block;
+    width: 90px;
+    color: var(--muted);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  footer {
+    padding: 32px 0 56px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 640px) {
+    section.hero .wrap {
+      flex-direction: column-reverse;
+      gap: 32px;
+    }
+    .hero-photo { max-width: 200px; }
+    h1.headline { font-size: 34px; }
+    header.site .wrap { flex-direction: column; align-items: flex-start; }
+    nav.site-nav a { margin-left: 0; margin-right: 20px; }
+    .work-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 28px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Felipe Carneiro</a>
+    <nav class="site-nav">
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="role">International Correspondent — Veja</div>
+      <h1 class="headline">Reporting on <em>tech</em> — and everything America.</h1>
+      <p class="bio">
+        I'm Felipe Carneiro, international correspondent for Veja, a major Brazilian
+        news outlet. I cover primarily tech, plus general U.S. news and stories.
+      </p>
+    </div>
+    <div class="hero-photo">
+      <img src="images/Headshot.jpg" alt="Portrait of Felipe Carneiro">
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2 class="section-title">Selected work</h2>
+    <div class="work-grid">
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/rota-66.pdf" target="_blank">
+          <img src="images/thumbs/rota-66.jpg" alt="Preview of the Rota 66 article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/rota-66.pdf" target="_blank">Rota 66</a>
+        <span class="work-meta">Veja — August 2026</span>
+        <a class="work-status" href="https://veja.abril.com.br/mundo/a-estrada-dos-sonhos-nos-100-anos-da-rota-66-veja-percorreu-um-trecho-da-mitica-rodovia/" target="_blank" rel="noopener">View live &rarr;</a>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/inter-onu-vilma.pdf" target="_blank">
+          <img src="images/thumbs/inter-onu-vilma.jpg" alt="Preview of the Inter / ONU — Vilma article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/inter-onu-vilma.pdf" target="_blank">Inter / ONU — Vilma</a>
+        <span class="work-meta">Veja — July 2026</span>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/copa.pdf" target="_blank">
+          <img src="images/thumbs/copa.jpg" alt="Preview of the Copa article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/copa.pdf" target="_blank">Copa</a>
+        <span class="work-meta">Veja Negócios — July 2026</span>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/inovacao.pdf" target="_blank">
+          <img src="images/thumbs/inovacao.jpg" alt="Preview of the Inovação article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/inovacao.pdf" target="_blank">Inovação</a>
+        <span class="work-meta">Veja Negócios — July 2026</span>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/corrida-espacial.pdf" target="_blank">
+          <img src="images/thumbs/corrida-espacial.jpg" alt="Preview of the Corrida Espacial article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/corrida-espacial.pdf" target="_blank">Corrida Espacial</a>
+        <span class="work-meta">Veja Negócios — June 2026</span>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/argentina.pdf" target="_blank">
+          <img src="images/thumbs/argentina.jpg" alt="Preview of the Argentina article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/argentina.pdf" target="_blank">Argentina</a>
+        <span class="work-meta">Veja Negócios — June 2026</span>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/amarelas-brian-chesky.pdf" target="_blank">
+          <img src="images/thumbs/amarelas-brian-chesky.jpg" alt="Preview of the Amarelas: Brian Chesky article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/amarelas-brian-chesky.pdf" target="_blank">Amarelas: Brian Chesky</a>
+        <span class="work-meta">Veja — June 2026</span>
+        <a class="work-status" href="https://veja.abril.com.br/paginas-amarelas/o-brasil-e-o-nosso-laboratorio-diz-brian-chesky-fundador-do-airbnb/" target="_blank" rel="noopener">View live &rarr;</a>
+      </div>
+
+      <div class="work-card">
+        <a class="work-cover" href="pdfs/tec-ia-fisica.pdf" target="_blank">
+          <img src="images/thumbs/tec-ia-fisica.jpg" alt="Preview of the Tec — IA física article layout" loading="lazy">
+        </a>
+        <a class="work-title" href="pdfs/tec-ia-fisica.pdf" target="_blank">Tec — IA física</a>
+        <span class="work-meta">Veja Negócios — April 2026</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-list">
+      <div><span class="contact-label">Email</span> <a href="mailto:carneiro.felipe@gmail.com">carneiro.felipe@gmail.com</a></div>
+      <div><span class="contact-label">LinkedIn</span> <a href="https://linkedin.com/in/felipemgcarneiro" target="_blank" rel="noopener">linkedin.com/in/felipemgcarneiro</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 Felipe Carneiro
+  </div>
+</footer>
+
+</body>
+</html>
